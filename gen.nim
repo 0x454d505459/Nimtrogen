@@ -78,7 +78,7 @@ proc check(code:string, proxies: seq): string =
     else: 
         client = newHttpClient()
 
-    try: discard client.getContent(&"https://discord.com/api/v6/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"); return "true" except HttpRequestError: return "false" except OSError: return "OSERROR"
+    try: discard client.getContent(&"https://discord.com/api/v9/entitlements/gift-codes/{code}?with_application=false&with_subscription_plan=true"); return "true" except HttpRequestError: return "false" except OSError: return "OSERROR"
 
 proc processus(proxies: seq, colors: Table) {.thread.} = 
     for i in 1..codes_to_check:
